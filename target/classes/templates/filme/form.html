@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="layout :: htmlhead"></head>
+	<body>
+		<div class="container">
+			<nav th:replace="layout :: menu">(menu)</nav>
+ 			<div class="border border-dark">
+				<form th:action="@{/filme/(form)}" th:object="${filme}" action="#" method="post">
+					<input type="hidden" id="txtid" th:field="*{id}" />
+				    <div class="form-group">
+				        <label for="txtpersonagem">Nome do Personagem</label>
+				        <input type="text" th:field="*{personagem}" class="form-control" id="txtpersonagem" placeholder="Digite o nome do Personagem">
+				    </div>
+				    <div class="form-group">
+				        <label for="txtobra">Nome da obra</label>
+				        <input type="text" th:field="*{obra}" class="form-control" id="txtobra" placeholder="Digite o nome da obra que o personagem aparece">
+				    </div>
+				    <div class="form-group">
+				        <label for="txtgenero">Qual o G&ecircnero</label>
+				        <input type="text" th:field="*{genero}" class="form-control" id="txtgenero" placeholder="Exemplos: Filme, Livro, Serie, Anime...">
+				    </div>
+				      
+				    <button type="submit" class="btn btn-outline-primary">Salvar</button>
+				</form>
+			</div>
+		</div>
+		<div th:include="layout :: footer" id="footer">(footer)</div>
+	</body>
+</html>
